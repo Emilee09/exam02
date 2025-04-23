@@ -1,0 +1,30 @@
+<div *ngIf="usuario" class="detalle-container">
+    <h2>Detalle de Usuario</h2>
+    
+    <div class="detalle-info">
+      <p><strong>Nombre:</strong> {{ usuario.name }}</p>
+      <p><strong>Usuario:</strong> {{ usuario.username }}</p>
+      <p><strong>Email:</strong> {{ usuario.email }}</p>
+      <p><strong>Teléfono:</strong> {{ usuario.phone }}</p>
+      <p><strong>Sitio web:</strong> {{ usuario.website }}</p>
+      
+      <h3>Dirección</h3>
+      <p><strong>Calle:</strong> {{ usuario.address.street }}</p>
+      <p><strong>Suite:</strong> {{ usuario.address.suite }}</p>
+      <p><strong>Ciudad:</strong> {{ usuario.address.city }}</p>
+      <p><strong>Código postal:</strong> {{ usuario.address.zipcode }}</p>
+      
+      <button (click)="toggleEmpresa()" class="btn">
+        {{ mostrarEmpresa ? 'Ocultar' : 'Mostrar' }} información de empresa
+      </button>
+      
+      <div *ngIf="mostrarEmpresa" class="empresa-info">
+        <h3>Empresa</h3>
+        <p><strong>Nombre:</strong> {{ usuario.company.name }}</p>
+        <p><strong>Eslogan:</strong> {{ usuario.company.catchPhrase }}</p>
+        <p><strong>Negocio:</strong> {{ usuario.company.bs }}</p>
+      </div>
+      
+      <a routerLink="/usuarios" class="btn">Volver al listado</a>
+    </div>
+  </div>
